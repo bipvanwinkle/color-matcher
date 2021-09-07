@@ -45,7 +45,9 @@
         crossorigin="anonymous"
     ></script>
     <script>
-        $("#target").draggable({ revert: true });
+        if (window.$) {
+            $("#target").draggable({ revert: true });
+        }
         function getRandomInt(high = 255) {
             return Math.ceil(Math.random() * high);
         }
