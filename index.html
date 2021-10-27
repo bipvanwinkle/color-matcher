@@ -2,17 +2,22 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title></title>
+        <title>Best Game Ever</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
             h2 {
                 margin: 0px;
+            }
+
+            .readout {
+                font-size: 48px;
             }
     
             .button-group {
                 display: flex;
                 flex-direction: column;
                 margin: 0px 15px;
+                align-items: center;
             }
 
             .button-groups {
@@ -58,16 +63,19 @@
                 <div class="button-group">
                     <h2 id="red-label" class="button-label">Redness</h2>
                     <button id="more-red" class="button">More Red (q)</button>
+                    <h2 id="red-readout" class="readout">0</h2>
                     <button id="less-red" class="button">Less Red (a)</button>
                 </div>
                 <div class="button-group">
                     <h2 id="green-label" class="button-label">Greenness</h2>
                     <button id="more-green" class="button">More Green (w)</button>
+                    <h2 id="green-readout" class="readout">0</h2>
                     <button id="less-green" class="button">Less Green (s)</button>
                 </div>
                 <div class="button-group">
                     <h2 id="blue-label" class="button-label">Blueness</h2>
                     <button id="more-blue" class="button">More Blue (e)</button>
+                    <h2 id="blue-readout" class="readout">0</h2>
                     <button id="less-blue" class="button">Less Blue (d)</button>
                 </div>
             </div>
@@ -126,12 +134,12 @@
             target.style[
                 "background-color"
             ] = `rgb(${newRgb.red}, ${newRgb.green}, ${newRgb.blue})`;
-            const redLabel = document.getElementById("red-label");
-            redLabel.innerText = `Redness: ${newRgb.red}`;
-            const greenLabel = document.getElementById("green-label");
-            greenLabel.innerText = `Greenness: ${newRgb.green}`;
-            const blueLabel = document.getElementById("blue-label");
-            blueLabel.innerText = `Blueness: ${newRgb.blue}`;
+            const redReadout = document.getElementById("red-readout");
+            redReadout.innerText = `${newRgb.red}`;
+            const greenReadout = document.getElementById("green-readout");
+            greenReadout.innerText = `${newRgb.green}`;
+            const blueReadout = document.getElementById("blue-readout");
+            blueReadout.innerText = `${newRgb.blue}`;
             targetColor = newRgb;
         }
         function check() {
