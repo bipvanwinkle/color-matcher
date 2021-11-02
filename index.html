@@ -23,6 +23,7 @@
       .button-groups {
         display: flex;
         flex-direction: row;
+        margin: 0px auto 50px auto;
       }
 
       .button {
@@ -55,7 +56,7 @@
         width: 300px;
         background-color: rgb(0, 0, 0);
         border-radius: 150px;
-        margin: 0 auto;
+        margin: 100px auto 50px auto;
       "
     ></div>
     <div class="interface-panel">
@@ -96,7 +97,7 @@
     if (window.$) {
       $("#target").draggable({ revert: true });
     }
-    function getRandomInt(high = 255) {
+    function getRandomInt(high = 256) {
       return Math.ceil(Math.random() * high);
     }
     let targetColor = {
@@ -127,9 +128,9 @@
       const target = document.getElementById("target");
       const newRgb = {
         ...targetColor,
-        ...(red && red > 0 && red < 255 && { red }),
-        ...(green && green > 0 && green < 255 && { green }),
-        ...(blue && blue > 0 && blue < 255 && { blue }),
+        ...(red >= 0 && red <= 255 && { red }),
+        ...(green >= 0 && green <= 255 && { green }),
+        ...(blue >= 0 && blue <= 255 && { blue }),
       };
       target.style[
         "background-color"
